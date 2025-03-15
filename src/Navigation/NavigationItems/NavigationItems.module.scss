@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  display: flex;
+  gap: 1.25rem;
+}
+
+.addition {
+  font-size: 0.6875rem;
+  text-align: center;
+
+  width: 50px;
+  position: absolute;
+  right: 0.25rem;
+  top: -0.5rem;
+  background-color: var(--red);
+  border-radius: 0.46875rem;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--orange);
+  }
+}

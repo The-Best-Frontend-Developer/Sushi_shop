@@ -1,0 +1,60 @@
+.cartItems {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.image {
+  width: 4.375rem;
+  height: 3.125rem;
+}
+
+.info {
+  @include flexCenter(column, null, null);
+  gap: 0.1875rem;
+}
+
+.product {
+  display: flex;
+}
+
+.amountPriceContainer {
+  @include flexCenter(row, null, space-between);
+  gap: 1.875rem;
+}
+
+.amountGroup {
+  @include flexCenter(row, null, space-between);
+  width: 4.375rem;
+}
+
+.decreasement {
+  @include flexCenter(row, center);
+  width: 0.75rem;
+}
+
+.increment {
+  width: 1.25rem;
+}
+
+.minus {
+  stroke: var(--darkColor);
+}
+
+.plus {
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0.25rem;
+  border-radius: 50%;
+  background-color: var(--orange);
+}
+
+.delete {
+  width: 0.46875rem;
+  height: 0.46875rem;
+  margin: 0.3125rem 0.3125rem auto auto;
+}
+
+.cross {
+  width: 0.46875rem;
+  height: 0.46875rem;
+}

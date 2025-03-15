@@ -1,0 +1,24 @@
+.container {
+  @include flexCenter(column);
+  gap: 1.875rem;
+  margin-top: 1.625rem;
+}
+
+.logo {
+  @include flexCenter(column);
+}
+
+.line {
+  width: 11.25rem;
+  height: 0.0625rem;
+  background-color: var(--grey);
+}
+
+.shopName {
+  font-size: 1.875rem;
+}
+
+.navigationList {
+  @include flexCenter(column, null, null);
+  gap: 1.875rem;
+}

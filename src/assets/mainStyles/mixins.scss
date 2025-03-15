@@ -1,0 +1,12 @@
+@mixin flexCenter($direction: null, $align-items: null, $justify-content: center) {
+  display: flex;
+
+  @if $direction == row {
+    justify-content: $justify-content;
+    align-items: $align-items;
+  } @else if $direction == column {
+    flex-direction: $direction;
+    justify-content: $align-items;
+    align-items: $justify-content;
+  }
+}

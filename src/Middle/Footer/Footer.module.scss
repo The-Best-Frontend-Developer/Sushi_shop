@@ -1,0 +1,79 @@
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 19.6875rem);
+  justify-content: space-between;
+  height: 16.875rem;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -1.25rem;
+  width: 100%;
+  border-top: 0.0325rem var(--grey) solid;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.links, .messengersContainer {
+  border-right: 0.03125rem var(--grey) solid;
+}
+
+.container > * {
+  padding-block: 0.625rem;
+}
+
+.messengersContainer, .contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding-inline: 2.5rem;
+}
+
+.messengers {
+  display: flex;
+  gap: 1.875rem;
+}
+
+.messengers > * {
+  opacity: 0.3;
+  transition: var(--transition);
+}
+.messengers > :nth-child(1) {
+  background-color: #1BD741;
+}
+.messengers > :nth-child(2) {
+  background-color: #61A8DE;
+}
+.messengers > :nth-child(3) {
+  background: linear-gradient(45deg, #FFDD55, #FF543E, #C837AB);
+}
+
+
+
+
+.messenger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.125rem;
+  height: 3.125rem;
+  padding: 0.5625rem;
+  border-radius: 50%;
+}
+
+.link {transition: var(--transition)}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--orange);
+  }
+  .messengers > *:hover{
+     opacity: 1;
+   }
+}

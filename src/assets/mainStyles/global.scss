@@ -1,0 +1,39 @@
+//Размер
+.vSmall {font-size: 0.75rem}
+.small {font-size: 0.875rem}
+.mid {font-size: 1.125rem}
+.big {font-size: 1.5rem}
+.huge {font-size: 3rem}
+
+//Жирность
+.light {font-weight: 200}
+.reg {font-weight: 400}
+.medium {font-weight: 500}
+.bold {font-weight: 700}
+
+//Цвет
+.black {color: var(--fontColor)}
+.light-grey {color: var(--light-grey)}
+.orange {color: var(--orange)}
+.white {color: var(--white)}
+.grey {color: var(--grey)}
+.redOrange {color: var(--redOrange)}
+
+//.vSmall, .small, .mid, .big, .huge, .light, .reg, .medium, .bold, .black,
+//.light-grey, .orange, .white, .grey, .redOrange {}
+
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--darkColor);
+}
+
+.link {
+  transition: 0.3s;
+}

@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 73.125rem;
+  gap: 3.75rem;
+  background-color: var(--light-grey);
+  margin-inline: auto;
+}

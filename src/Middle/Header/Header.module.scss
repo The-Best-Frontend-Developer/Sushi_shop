@@ -1,0 +1,65 @@
+.header {
+  @include flexCenter(row, null, flex-start);
+  width: 100%;
+  height: 5.9375rem;
+  border-bottom: 0.03125rem var(--grey) solid;
+}
+
+.contacts, .mainHeader {
+  margin-block: auto;
+}
+
+.contacts {
+  @include flexCenter(column, center);
+  min-width: 13.75rem;
+  padding-inline: 1.125rem;
+  line-height: 100%;
+}
+
+.phone {
+  line-height: normal;
+}
+
+.workingHours {
+  display: flex;
+  gap: 0.3125rem;
+  margin-top: 0.3125rem;
+}
+
+.text {
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--orange);
+  }
+}
+
+.mainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4.375rem;
+  width: 100%;
+  padding-inline: 0.75rem;
+  border-left: 0.03125rem var(--grey) solid;
+  height: 100%;
+}
+
+.city {
+  @include flexCenter(column, null, null);
+  gap: 0.25rem;
+}
+
+.navigation {
+  display: flex;
+  gap: 0.625rem;
+  margin-left: auto;
+}
+
+.searchButton {
+  margin-right: 1.75rem;
+  width: 1.875rem;
+  height: 1.875rem;
+}
