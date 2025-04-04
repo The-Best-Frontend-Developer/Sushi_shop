@@ -2,7 +2,14 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import cl from './NavigationItems.module.scss'
 
-const NavigationItems = ({name, svg, additions, url}) => {
+type Props = {
+    name: string,
+    svg: string,
+    additions: string,
+    url: string,
+}
+
+const NavigationItems = ({name, svg, additions, url}: Props) => {
     return (
         <li className={cl.container}>
             <div>

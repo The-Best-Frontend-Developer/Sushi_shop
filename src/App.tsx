@@ -1,14 +1,15 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './assets/mainStyles/global.scss'
 import cl from "./App.module.css";
 import './styles.scss'
 import {Routes, Route, useLocation} from "react-router-dom";
-import MainPage from "./pages/mainPage/MainPage";
-import RightAside from "./RightAside/RightAside";
-import Navigation from "./Navigation/Navigation";
-import PizzaPage from "./pages/pizzaPage/PizzaPage";
-import Middle from "./Middle/Middle";
-import {ProductContext} from "./Context.jsx";
+import MainPage from "./pages/mainPage/MainPage.tsx";
+import RightAside from "./RightAside/RightAside.tsx";
+import Navigation from "./Navigation/Navigation.tsx";
+import PizzaPage from "./pages/pizzaPage/PizzaPage.tsx";
+import Middle from "./Middle/Middle.tsx";
+import {useAppDispatch} from "./store/myHook.ts";
+import {addProduct} from "./store/reducers/cartProductsReducer.tsx";
 
 const lightTheme = {
     '--orange': '#FF9846',
@@ -47,16 +48,13 @@ const darkTheme = {
 };
 
 function App() {
-    const contextValues = useContext(ProductContext)
-    const location = useLocation()
-    const isPageTakeOrder = location.pathname.includes('/take-order')
-    const isPageReviews = location.pathname.includes('/reviews')
-    const isPageProduct = location.pathname.includes('/product')
+    const dispatch = useAppDispatch();
+    const location = useLocation();
     const [isDark, setIsDark] = useState(false);
     const [name, setName] = useState('ывапролдлорпавап')
-    const [amount, setAmount] = useState('2')
-    const [price, setPrice] = useState('100')
-    const [id, setId] = useState('1')
+    const [amount, setAmount] = useState<string | null>('2')
+    const [price, setPrice] = useState<string | null>('100')
+    const [id, setId] = useState<string | null>('1')
 
     useEffect(() => {
         const theme = isDark ? darkTheme : lightTheme;
@@ -65,32 +63,42 @@ function App() {
         });
     }, [isDark]);
 
+    function handleChange(el: string | null) {
+        return el ? el : ''
+    }
+
     return (
         <div className={cl.container}>
             <input className={cl.checkbox} type="checkbox" onChange={() => setIsDark(!isDark)}/>
             <form className={cl.absolute}>
                 <input type="text" value={name} placeholder='Название' onChange={(e) => setName(e.target.value)}/>
-                <input type="text" value={amount} placeholder='Кол-во' onChange={(e) => setAmount(e.target.value)}/>
-                <input type="text" value={price} placeholder='Цена' onChange={(e) => setPrice(e.target.value)}/>
-                <input type="text" value={id} placeholder='ID' onChange={(e) => setId(e.target.value)}/>
+                <input type="text" value={handleChange(amount)} placeholder='Кол-во' onChange={() => setAmount(handleChange(amount))}/>
+                <input type="text" value={handleChange(price)} placeholder='Цена' onChange={() => setPrice(handleChange(price))}/>
+                <input type="text" value={handleChange(id)} placeholder='ID' onChange={() => setId(handleChange(id))}/>
                 <button className={cl.add}
                         onClick={(event) => {
                             event.preventDefault();
-                            contextValues.addProduct(id, '/public/logo.png', name, Number(amount), price);
-                            setId('')
+                            dispatch(addProduct({
+                                id: Number(id),
+                                img: '/public/logo.png',
+                                name,
+                                amount: Number(amount),
+                                price: Number(price)
+                            }));
+                            setId(null)
                             setName('')
-                            setAmount('')
-                            setPrice('')
+                            setAmount(null)
+                            setPrice(null)
                         }}
                 >
                     Добавить
                 </button>
             </form>
 
-            {!isPageTakeOrder && <Navigation/>}
-            <Middle isPageTakeOrder={isPageTakeOrder} isPageReviews={isPageReviews} isPageProduct={isPageProduct}>
+            {!(location.pathname === '/take-order') && <Navigation/>}
+            <Middle>
                 <Routes>
-                    <Route path="/" element={<MainPage/>} exact/>
+                    <Route path="/" element={<MainPage/>}/>
                     <Route path="/pizza" element={<PizzaPage/>}/>
                 </Routes>
             </Middle>

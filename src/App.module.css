@@ -50,7 +50,7 @@
   font-display: swap;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, Link {
+h1, h2, h3, h4, h5, h6, p, a, ul, Link {
   font-family: var(--font), sans-serif;
   color: red;
 }

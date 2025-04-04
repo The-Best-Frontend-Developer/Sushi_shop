@@ -1,7 +1,7 @@
 import React from 'react';
-import Slider from "./components/Slider/Slider.jsx";
-import Menu from "./components/Menu/Menu.jsx";
-import SliderBanner from "./components/SliderBanner/SliderBanner.jsx";
+import Slider from "./components/Slider/Slider.tsx";
+import Menu from "./components/Menu/Menu.tsx";
+import SliderBanner from "./components/SliderBanner/SliderBanner.tsx";
 
 const MainPage = () => {
     return (

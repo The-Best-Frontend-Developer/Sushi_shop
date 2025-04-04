@@ -1,15 +1,15 @@
-import React, {useContext, useMemo, useState} from 'react';
+import React, {useMemo} from 'react';
 import cl from './FullCart.module.scss'
-import CartItems from "./CartItems/CartItems";
+import CartItems from "./CartItems/CartItems.tsx";
 import {Link} from "react-router-dom";
-import {ProductContext} from "../../../Context";
+import {useAppSelector} from "../../../store/myHook.js";
 
 const FullCart = () => {
-    const contextValues = useContext(ProductContext)
+    const state = useAppSelector(state => state.cart)
 
     const calcPrice = useMemo(() => {
-        return contextValues.products.reduce((acc, el) => Number(acc) + Number(el.price) * Number(el.amount), 0)
-    }, [contextValues.products])
+        return state.reduce((acc, el) => Number(acc) + Number(el.price) * Number(el.amount), 0)
+    }, [state])
 
     return (
         <div className={cl.fullCart}>
@@ -17,8 +17,8 @@ const FullCart = () => {
                 <h3 className={cl.h3}>Корзина</h3>
             </div>
             <div className={cl.cartItems}>
-                {contextValues.products.map((el) =>
-                <CartItems key={el.id} product={el}/>
+                {state.map((el) =>
+                <CartItems key={el.id} {...{product: el}}/>
             )}
             </div>
             <div className={cl.orderActions}>

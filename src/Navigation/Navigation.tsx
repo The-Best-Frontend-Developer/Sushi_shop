@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from './Navigation.module.scss'
-import NavigationItems from "./NavigationItems/NavigationItems";
+import NavigationItems from "./NavigationItems/NavigationItems.ts";
 import {Link} from "react-router-dom";
 import svg1 from './NavigationItems/images/1.svg';
 import svg2 from './NavigationItems/images/2.svg';
@@ -14,6 +14,7 @@ import svg9 from './NavigationItems/images/9.svg';
 import svg10 from './NavigationItems/images/10.svg';
 
 const Navigation = () => {
+
     const navigationList = [
         {id: 1, name: 'Пицца', svg: svg1, additions: '', URL: '/pizza'},
         {id: 2, name: 'Сеты', svg: svg2, additions: '', URL: '/sets'},
@@ -30,7 +31,7 @@ const Navigation = () => {
     return (
         <div className={cl.container}>
             <Link className={cl.logo} to='/'>
-                <img src="/src/Navigation/logo.png" alt="Romsem logo" style={{width: 100, aspectRatio: 1}}/>
+                <img src="logo.png" alt="Romsem logo" style={{width: 100, aspectRatio: 1}}/>
                 <h2 className={[cl.shopName, 'light', 'black'].join(' ')}>ROMSEM</h2>
             </Link>
             <div className={cl.line}></div>

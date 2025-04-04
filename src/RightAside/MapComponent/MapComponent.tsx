@@ -9,9 +9,9 @@ const MapComponent = () => {
                     width="100%"
                     height="100%"
                     style={{border: 0}}
-                    allowFullScreen=""
+                    allowFullScreen
                     aria-hidden="false"
-                    tabIndex="0">
+                    tabIndex={0}>
             </iframe>
             <div className={cl.mapDescription}>
                 <div className={cl.circleMarker}>

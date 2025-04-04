@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from './EmptyCart.module.scss'
-import MapComponent from "../../MapComponent/MapComponent";
+import MapComponent from "../../MapComponent/MapComponent.tsx";
 
 const EmptyCart = () => {
     return (

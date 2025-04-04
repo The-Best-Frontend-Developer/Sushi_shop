@@ -1,9 +1,22 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import cl from './CartItems.module.scss';
-import {ProductContext} from "/src/Context.jsx";
+import {useAppDispatch} from "../../../../store/myHook.js";
+import {removeProduct, updateAmount} from "../../../../store/reducers/cartProductsReducer.js";
 
-const CartItems = ({product}) => {
-    const contextValues = useContext(ProductContext);
+type CartItem = {
+    id: number,
+    img: string,
+    name: string,
+    amount: number,
+    price: number
+};
+
+type Props = {
+    product: CartItem,
+};
+
+const CartItems = ({product}: Props) => {
+    const dispatch = useAppDispatch();
 
     const name = product.name
     let shortName;
@@ -14,8 +27,8 @@ const CartItems = ({product}) => {
         shortName = name
     }
 
-    function sum() {contextValues.updateAmount(product.id, Number(product.amount + 1))}
-    function min() {contextValues.updateAmount(product.id, Number(product.amount - 1))}
+    function sum() {dispatch(updateAmount({id: product.id, newAmount: Number(product.amount + 1)}))}
+    function min() {dispatch(updateAmount({id: product.id, newAmount: Number(product.amount - 1)}))}
 
     return (
         <div className={cl.cartItems}>
@@ -52,7 +65,7 @@ const CartItems = ({product}) => {
                 </div>
             </div>
 
-            <button className={cl.delete} onClick={() => contextValues.removeProduct(product.id)}>
+            <button className={cl.delete} onClick={() => dispatch(removeProduct({id: product.id}))}>
                 <svg className={cl.delete} width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.15771 1.00012L1.0002 8.1577" stroke="#A4ACAD" strokeWidth="2" strokeLinecap="round"/>
                     <path d="M1.34082 1L8.49834 8.15758" stroke="#A4ACAD" strokeWidth="2" strokeLinecap="round"/>

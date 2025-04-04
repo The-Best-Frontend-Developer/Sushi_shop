@@ -1,8 +1,10 @@
 import React from 'react';
 import cl from "./Header.module.scss";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
-const Header = ({isPageTakeOrder}) => {
+const Header = () => {
+    const location = useLocation();
+
     return (
         <header className={cl.header}>
             <div className={cl.contacts}>
@@ -46,7 +48,7 @@ const Header = ({isPageTakeOrder}) => {
                     </p>
                 </div>
             </div>
-            {!isPageTakeOrder &&
+            {!(location.pathname === '/take-order') &&
                 <div className={cl.mainHeader}>
                     <div className={cl.city}>
                         <p className='small light grey'>Город:</p>
