@@ -7,13 +7,15 @@ import {useLocation} from "react-router-dom";
 
 const Middle = ({children}: {children: React.ReactNode}) => {
     const location = useLocation();
-    const isShowPage = location.pathname === '/product' || '/reviews'
+    const hideAboutOn = ['/product', '/reviews', '/take-order']
+    const isShowAbout = hideAboutOn.includes(location.pathname)
+    const isShowFooter = location.pathname === '/take-order'
     return (
         <div className={cl.container}>
             <Header/>
             {children}
-            {!isShowPage && <About/>}
-            <Footer/>
+            {!isShowAbout && <About/>}
+            {!isShowFooter && <Footer/>}
         </div>
     );
 };

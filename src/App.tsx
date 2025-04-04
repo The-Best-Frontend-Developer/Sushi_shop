@@ -9,7 +9,7 @@ import Navigation from "./Navigation/Navigation.tsx";
 import PizzaPage from "./pages/pizzaPage/PizzaPage.tsx";
 import Middle from "./Middle/Middle.tsx";
 import {useAppDispatch} from "./store/myHook.ts";
-import {addProduct} from "./store/reducers/cartProductsReducer.tsx";
+import {addProduct} from "./store/reducers/cartProductsReducer.ts";
 
 const lightTheme = {
     '--orange': '#FF9846',

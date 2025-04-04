@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from './Navigation.module.scss'
-import NavigationItems from "./NavigationItems/NavigationItems.ts";
+import NavigationItems from "./NavigationItems/NavigationItems.tsx";
 import {Link} from "react-router-dom";
 import svg1 from './NavigationItems/images/1.svg';
 import svg2 from './NavigationItems/images/2.svg';
